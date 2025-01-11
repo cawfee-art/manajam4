@@ -12,6 +12,8 @@ var is_on_vine: bool
 
 var paused: bool = false
 
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
 	Events.dialog_started.connect(on_dialog_started)
@@ -39,13 +41,13 @@ func _physics_process(delta):
 			velocity.x = CLIMB_SPEED * direction
 			velocity.y = CLIMB_SPEED * y_direction
 			
-			$AnimatedSprite2D.play("Climb")
+			sprite.play("Climb")
 			
 		else:
 			
 			velocity = Vector2.ZERO
 			
-			$AnimatedSprite2D.play("ClimbIdle")
+			sprite.play("ClimbIdle")
 		
 	else: # not on vine
 		if not paused and direction:
@@ -54,7 +56,7 @@ func _physics_process(delta):
 			
 			if is_on_floor():
 				
-				$AnimatedSprite2D.play("Run")
+				sprite.play("Run")
 			
 		else:
 			
@@ -62,15 +64,15 @@ func _physics_process(delta):
 			
 			if is_on_floor():
 				
-				$AnimatedSprite2D.play("Idle")
+				sprite.play("Idle")
 	
 	# Rotate
 	
 	if not paused:
 		if direction > 0:
-			$AnimatedSprite2D.flip_h = false
+			sprite.flip_h = false
 		elif direction < 0:
-			$AnimatedSprite2D.flip_h = true
+			sprite.flip_h = true
 	
 	
 	# Gravity
@@ -81,7 +83,7 @@ func _physics_process(delta):
 		
 		if velocity.y > 0:
 			
-			$AnimatedSprite2D.play("Fall")
+			sprite.play("Fall")
 	
 	# Jump
 	
@@ -90,7 +92,7 @@ func _physics_process(delta):
 		is_on_vine = false
 		
 		velocity.y -= JUMP_FORCE
-		$AnimatedSprite2D.play("Jump")
+		sprite.play("Jump")
 	
 	
 	move_and_slide()

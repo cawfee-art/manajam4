@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwmvyxupklfcv"]
+[gd_scene load_steps=12 format=4 uid="uid://cwmvyxupklfcv"]
 
 [ext_resource type="Texture2D" uid="uid://bgwqqmj5uclvo" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
 [ext_resource type="TileSet" uid="uid://cxqpefvpfqt0u" path="res://ressources/vine_tile_set.tres" id="2_0pdfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ims46pmmh0mh" path="res://scene/sign/sign.tscn" id="5_0pdfi"]
 [ext_resource type="PackedScene" uid="uid://vf60w7pqhw0e" path="res://dialogic/dialog_trigger.tscn" id="5_nypmm"]
 [ext_resource type="PackedScene" uid="uid://g254yp20hstw" path="res://scene/bean/bean.tscn" id="6_l3ar7"]
+[ext_resource type="PackedScene" uid="uid://chmp50ybvuvgb" path="res://scene/npc/npc.tscn" id="8_iai67"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajvav"]
 texture = ExtResource("1_gwcin")
@@ -186,11 +187,16 @@ vine_layer = NodePath("../vine")
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="DialogTrigger" parent="Dialogs" instance=ExtResource("5_nypmm")]
-position = Vector2(2814, 3596)
+position = Vector2(1959, 3594)
 timeline = "uid://0qf2t76k8ygx"
+zoom = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogTrigger"]
 shape = SubResource("RectangleShape2D_iai67")
+
+[node name="Npc" parent="Dialogs" instance=ExtResource("8_iai67")]
+position = Vector2(2875, 3626)
+timeline = "res://dialogic/npc_test.dtl"
 
 [node name="notizen" type="Node" parent="."]
 

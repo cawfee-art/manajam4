@@ -27,6 +27,16 @@ script = ExtResource("2_06sqv")
 scene = SubResource("PackedScene_ryrxc")
 overrides = {}
 
+[sub_resource type="Resource" id="Resource_ge3b0"]
+script = ExtResource("2_06sqv")
+scene = ExtResource("7_efjnc")
+overrides = {
+"name_label_custom_size": "40.0",
+"name_label_use_global_size": "false",
+"text_custom_size": "30.0",
+"text_use_global_size": "false"
+}
+
 [sub_resource type="Resource" id="Resource_sdxno"]
 script = ExtResource("2_06sqv")
 scene = ExtResource("5_xg8gy")
@@ -41,16 +51,6 @@ overrides = {}
 script = ExtResource("2_06sqv")
 scene = ExtResource("9_uix83")
 overrides = {}
-
-[sub_resource type="Resource" id="Resource_ge3b0"]
-script = ExtResource("2_06sqv")
-scene = ExtResource("7_efjnc")
-overrides = {
-"name_label_custom_size": "40.0",
-"name_label_use_global_size": "false",
-"text_custom_size": "30.0",
-"text_use_global_size": "false"
-}
 
 [resource]
 script = ExtResource("11_5ruix")

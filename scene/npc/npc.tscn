@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://chmp50ybvuvgb"]
+
+[ext_resource type="Script" uid="uid://bhgjyxjixiyil" path="res://scene/npc/npc.gd" id="1_3j4xb"]
+[ext_resource type="Texture2D" uid="uid://bksjw85xv0dab" path="res://art/player/Player - Idle.png" id="1_kaxdb"]
+[ext_resource type="Texture2D" uid="uid://36nmq7apom6n" path="res://art/keys/F-Key.png" id="3_wi6sr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaxdb"]
+size = Vector2(165, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4xb"]
+atlas = ExtResource("1_kaxdb")
+region = Rect2(0, 0, 100, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi6sr"]
+atlas = ExtResource("1_kaxdb")
+region = Rect2(100, 0, 100, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uay3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi6sr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uay3g"]
+atlas = ExtResource("3_wi6sr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woatd"]
+atlas = ExtResource("3_wi6sr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbn76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uay3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woatd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Npc" type="Node2D"]
+script = ExtResource("1_3j4xb")
+
+[node name="Pivot" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-1, 1)
+
+[node name="Area2D" type="Area2D" parent="Pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
+position = Vector2(208, 18)
+shape = SubResource("RectangleShape2D_kaxdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+sprite_frames = SubResource("SpriteFrames_uay3g")
+autoplay = "default"
+frame_progress = 0.713294
+
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -129)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_vbn76")
+autoplay = "default"
+frame_progress = 0.834081
+
+[connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Pivot/Area2D" to="." method="_on_area_2d_body_exited"]
