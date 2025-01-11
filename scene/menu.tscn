@@ -1,13 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8ssrh15jki2f"]
 
-[ext_resource type="Script" uid="uid://0kf26uvtgbxx" path="res://scene/menu.gd" id="1_e5g8k"]
+[ext_resource type="Script" uid="uid://0kf26uvtgbxx" path="res://script/menu.gd" id="1_e5g8k"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_e5g8k")
 
 [node name="play" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 534.0
+offset_top = 513.0
+offset_right = 676.0
+offset_bottom = 569.0
 text = "play
 "
 

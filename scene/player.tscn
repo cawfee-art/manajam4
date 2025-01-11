@@ -1,16 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvl157juqm51p"]
+[gd_scene load_steps=6 format=3 uid="uid://bvl157juqm51p"]
 
 [ext_resource type="Script" uid="uid://2that6tigpyt" path="res://script/player.gd" id="1_gl34u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0hl6"]
+size = Vector2(61, 63)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vrig"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_xo3ru"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hjaqi"]
+gradient = SubResource("Gradient_xo3ru")
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_gl34u")
+SPEED = 500
+JUMP_FORCE = 700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 16.5)
 shape = SubResource("RectangleShape2D_c0hl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5vrig")
+animation = &"Jump"
+autoplay = "Idle"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 48.0
+texture = SubResource("GradientTexture2D_hjaqi")
