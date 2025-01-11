@@ -14,10 +14,8 @@ fill = 2
 fill_from = Vector2(0.477778, 0.490741)
 fill_to = Vector2(1, 1)
 
-[node name="VineManager" type="Node" node_paths=PackedStringArray("player", "vine_layer")]
+[node name="VineManager" type="Node"]
 script = ExtResource("1_exkb1")
-player = NodePath("")
-vine_layer = NodePath("")
 
 [node name="Marker" type="Sprite2D" parent="."]
 unique_name_in_owner = true
