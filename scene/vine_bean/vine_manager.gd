@@ -33,22 +33,23 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		push_error("Vine Atlas not found")
 		return
 	
-	#TEST: show marker everytime
-	_show_marker()
-	
 	if not has_bean():
 		printerr("No bean")
+		Events.not_enough_beans.emit()
 		return
 	
 	if not can_plant_here():
 		printerr("Can't plant here")
+		_show_marker(false)
 		return
 	
+	Globals.beans -= 1
 	plant_vine_at(_get_player_position_on_grid())
+	Events.vine_planted.emit()
 
 
 func has_bean() -> bool:
-	return true
+	return Globals.beans > 0
 
 func can_plant_here() -> bool:
 	var player_pos := _get_player_position_on_grid()
@@ -132,7 +133,7 @@ func _grid_has_collision_at(grid_pos: Vector2i) -> bool:
 	
 	return false
 
-
+## Returns true if the ground has custom data for Soil
 func _can_plant_at(grid_pos: Vector2i) -> bool:
 	for tile_map in tile_map_layers:
 		var tile_data := tile_map.get_cell_tile_data(grid_pos)
@@ -144,9 +145,9 @@ func _can_plant_at(grid_pos: Vector2i) -> bool:
 	return false
 
 ## Shows the marker at the current grid position for a second
-func _show_marker() -> void:
-	%Marker.position = vine_layer.map_to_local(_get_player_position_on_grid())
-	if can_plant_here():
+func _show_marker(success: bool) -> void:
+	%Marker.position = vine_layer.map_to_local(_get_player_position_on_grid() + Vector2i(0, 1))
+	if success:
 		%Marker.self_modulate = Color.GREEN
 	else:
 		%Marker.self_modulate = Color.RED

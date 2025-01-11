@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm10u3xm06cvh" path="res://script/player.gd" id="1_gl34u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0hl6"]
-size = Vector2(100, 150)
+size = Vector2(80, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vrig"]
 animations = [{

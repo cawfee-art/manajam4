@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://g254yp20hstw"]
+
+[ext_resource type="Script" uid="uid://pxfix3um1rxm" path="res://scene/bean/bean.gd" id="1_s37o2"]
+
+[sub_resource type="Gradient" id="Gradient_xd1dr"]
+offsets = PackedFloat32Array(0, 0.705263)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p2yoy"]
+gradient = SubResource("Gradient_xd1dr")
+width = 75
+height = 75
+fill = 1
+fill_from = Vector2(0.514815, 0.505556)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s37o2"]
+size = Vector2(75, 75)
+
+[node name="Bean" type="Node2D"]
+script = ExtResource("1_s37o2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -38)
+texture = SubResource("GradientTexture2D_p2yoy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -37.5)
+shape = SubResource("RectangleShape2D_s37o2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -51.0
+offset_right = 23.0
+offset_bottom = -28.0
+text = "Bohne"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbev5dpinjer3"]
 
-[ext_resource type="Script" uid="uid://bqv2tphkkyk2u" path="res://scene/vine_bean/bean.gd" id="1_exkb1"]
+[ext_resource type="Script" uid="uid://bqv2tphkkyk2u" path="res://scene/vine_bean/vine_manager.gd" id="1_exkb1"]
 
 [sub_resource type="Gradient" id="Gradient_dq62c"]
 offsets = PackedFloat32Array(0.736842, 1)

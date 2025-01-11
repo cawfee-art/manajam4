@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Globals="*res://script/globals.gd"
 Events="*res://script/events.gd"
+Hud="*res://scene/hud/hud.tscn"
 
 [dialogic]
 
