@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvl157juqm51p"]
+[gd_scene load_steps=7 format=3 uid="uid://bvl157juqm51p"]
 
 [ext_resource type="Script" uid="uid://dm10u3xm06cvh" path="res://script/player.gd" id="1_gl34u"]
+[ext_resource type="Texture2D" uid="uid://bksjw85xv0dab" path="res://art/player/Player - Idle.png" id="2_hjaqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0hl6"]
 size = Vector2(80, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
+atlas = ExtResource("2_hjaqi")
+region = Rect2(0, 0, 100, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("2_hjaqi")
+region = Rect2(100, 0, 100, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vrig"]
 animations = [{
@@ -12,10 +21,16 @@ animations = [{
 "name": &"Fall",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4mp")
+}],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [],
 "loop": true,
@@ -28,14 +43,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_xo3ru"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hjaqi"]
-gradient = SubResource("Gradient_xo3ru")
-fill_from = Vector2(0.340741, 0.898148)
-fill_to = Vector2(0.366667, 0.875926)
-repeat = 1
-
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_gl34u")
 SPEED = 500
@@ -46,12 +53,6 @@ shape = SubResource("RectangleShape2D_c0hl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5vrig")
-animation = &"Jump"
+animation = &"Idle"
 autoplay = "Idle"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -50.0
-offset_top = -75.0
-offset_right = 50.0
-offset_bottom = 75.0
-texture = SubResource("GradientTexture2D_hjaqi")
+frame_progress = 0.152998
