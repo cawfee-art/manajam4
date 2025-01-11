@@ -45,10 +45,10 @@ text = "Schild"
 
 [node name="Panel" type="Panel" parent="."]
 unique_name_in_owner = true
-offset_left = -102.0
-offset_top = -165.0
-offset_right = 103.0
-offset_bottom = -78.0
+offset_left = -100.0
+offset_top = -251.0
+offset_right = 105.0
+offset_bottom = -164.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxi6p")
 
 [node name="Text" type="Label" parent="Panel"]

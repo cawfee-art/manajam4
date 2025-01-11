@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cwmvyxupklfcv"]
+[gd_scene load_steps=10 format=4 uid="uid://cwmvyxupklfcv"]
 
 [ext_resource type="Texture2D" uid="uid://cnx3dj3xyf6cx" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="2_gwcin"]
 [ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="3_4370r"]
 [ext_resource type="Texture2D" uid="uid://bo2pj275auvdh" path="res://scene/vine_bean/tileset_ranke_animated.png" id="4_0pdfi"]
+[ext_resource type="PackedScene" uid="uid://ims46pmmh0mh" path="res://scene/sign/sign.tscn" id="5_0pdfi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajvav"]
 texture = ExtResource("1_gwcin")
@@ -180,7 +181,8 @@ tile_set = SubResource("TileSet_4370r")
 tile_set = SubResource("TileSet_nypmm")
 
 [node name="player" parent="." node_paths=PackedStringArray("vine_tile_map_layer") instance=ExtResource("2_gwcin")]
-position = Vector2(20074, 1097)
+position = Vector2(6497, 3194)
+CLIMB_SPEED = 400
 vine_tile_map_layer = NodePath("../vine")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -190,7 +192,6 @@ offset = Vector2(0, -200)
 [node name="VineManager" parent="." node_paths=PackedStringArray("player", "vine_layer") instance=ExtResource("3_4370r")]
 player = NodePath("../player")
 vine_layer = NodePath("../vine")
-vine_tile_set_id = 0
 
 [node name="notizen" type="Node" parent="."]
 
@@ -228,3 +229,7 @@ offset_right = 25653.0
 offset_bottom = 669.0
 theme_override_font_sizes/font_size = 61
 text = "nächste level"
+
+[node name="Sign" parent="." instance=ExtResource("5_0pdfi")]
+position = Vector2(19503, 1498)
+text = "Hallo"

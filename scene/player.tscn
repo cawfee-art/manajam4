@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvl157juqm51p"]
 
-[ext_resource type="Script" uid="uid://2that6tigpyt" path="res://script/player.gd" id="1_gl34u"]
+[ext_resource type="Script" uid="uid://dm10u3xm06cvh" path="res://script/player.gd" id="1_gl34u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0hl6"]
-size = Vector2(61, 63)
+size = Vector2(100, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5vrig"]
 animations = [{
@@ -32,6 +32,9 @@ animations = [{
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hjaqi"]
 gradient = SubResource("Gradient_xo3ru")
+fill_from = Vector2(0.340741, 0.898148)
+fill_to = Vector2(0.366667, 0.875926)
+repeat = 1
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_gl34u")
@@ -39,7 +42,6 @@ SPEED = 500
 JUMP_FORCE = 700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, 16.5)
 shape = SubResource("RectangleShape2D_c0hl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -48,8 +50,8 @@ animation = &"Jump"
 autoplay = "Idle"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 40.0
-offset_bottom = 48.0
+offset_left = -50.0
+offset_top = -75.0
+offset_right = 50.0
+offset_bottom = 75.0
 texture = SubResource("GradientTexture2D_hjaqi")
