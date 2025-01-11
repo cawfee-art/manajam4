@@ -2,7 +2,7 @@ class_name Bean extends Node
 
 
 ## Delay between frames in sec
-@export_range(1.0, 100.0, 1.0) var grow_speed: float = 25
+@export_range(1.0, 100.0, 1.0) var grow_speed: float = 25.0
 @export var player: Player
 ## The layer the vine is placed on. Should be empty.
 @export var vine_layer: TileMapLayer
@@ -37,9 +37,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	_show_marker()
 	
 	if not has_bean():
+		printerr("No bean")
 		return
 	
 	if not can_plant_here():
+		printerr("Can't plant here")
 		return
 	
 	plant_vine_at(_get_player_position_on_grid())
@@ -54,9 +56,15 @@ func can_plant_here() -> bool:
 	var above := player_pos - Vector2i(0, 1)
 	
 	if not _grid_has_collision_at(below):
+		printerr("No collision below")
+		return false
+	
+	if not _can_plant_at(below):
+		printerr("Ground is no soil")
 		return false
 	
 	if not can_grow_at(above):
+		printerr("Not enough space above")
 		return false
 	
 	return true
@@ -120,6 +128,17 @@ func _grid_has_collision_at(grid_pos: Vector2i) -> bool:
 		if not tile_data:
 			continue
 		if tile_data.get_collision_polygons_count(collision_layer):
+			return true
+	
+	return false
+
+
+func _can_plant_at(grid_pos: Vector2i) -> bool:
+	for tile_map in tile_map_layers:
+		var tile_data := tile_map.get_cell_tile_data(grid_pos)
+		if not tile_data:
+			continue
+		if tile_data.get_custom_data("Soil"):
 			return true
 	
 	return false

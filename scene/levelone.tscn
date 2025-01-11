@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwmvyxupklfcv"]
+[gd_scene load_steps=8 format=4 uid="uid://cwmvyxupklfcv"]
 
 [ext_resource type="Texture2D" uid="uid://cnx3dj3xyf6cx" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
+[ext_resource type="TileSet" uid="uid://cxqpefvpfqt0u" path="res://ressources/vine_tile_set.tres" id="2_0pdfi"]
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="2_gwcin"]
 [ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="3_4370r"]
-[ext_resource type="Texture2D" uid="uid://bo2pj275auvdh" path="res://scene/vine_bean/tileset_ranke_animated.png" id="4_0pdfi"]
 [ext_resource type="PackedScene" uid="uid://ims46pmmh0mh" path="res://scene/sign/sign.tscn" id="5_0pdfi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajvav"]
@@ -16,6 +16,7 @@ texture_region_size = Vector2i(100, 100)
 0:0/0/terrains_peering_bit/right_side = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
 0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/custom_data_0 = true
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
@@ -25,6 +26,7 @@ texture_region_size = Vector2i(100, 100)
 1:0/0/terrains_peering_bit/bottom_side = 0
 1:0/0/terrains_peering_bit/bottom_left_corner = 0
 1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/custom_data_0 = true
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
@@ -32,6 +34,7 @@ texture_region_size = Vector2i(100, 100)
 2:0/0/terrains_peering_bit/bottom_side = 0
 2:0/0/terrains_peering_bit/bottom_left_corner = 0
 2:0/0/terrains_peering_bit/left_side = 0
+2:0/0/custom_data_0 = true
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 0
@@ -149,27 +152,9 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = "Soil"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_ajvav")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3ar7"]
-texture = ExtResource("4_0pdfi")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_nypmm"]
-tile_size = Vector2i(100, 100)
-sources/0 = SubResource("TileSetAtlasSource_l3ar7")
 
 [node name="Levelone" type="Node2D"]
 
@@ -178,7 +163,7 @@ tile_map_data = PackedByteArray("AABMABQAAAAAAAEAAABMABUAAAAAAAEAAABMABYAAAAAAAE
 tile_set = SubResource("TileSet_4370r")
 
 [node name="vine" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_nypmm")
+tile_set = ExtResource("2_0pdfi")
 
 [node name="player" parent="." node_paths=PackedStringArray("vine_tile_map_layer") instance=ExtResource("2_gwcin")]
 position = Vector2(6497, 3194)
@@ -190,6 +175,7 @@ position = Vector2(-12, -4)
 offset = Vector2(0, -200)
 
 [node name="VineManager" parent="." node_paths=PackedStringArray("player", "vine_layer") instance=ExtResource("3_4370r")]
+grow_speed = 50.0
 player = NodePath("../player")
 vine_layer = NodePath("../vine")
 
