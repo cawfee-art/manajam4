@@ -1,20 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://c7cj1v67nspif"]
+[gd_scene load_steps=4 format=4 uid="uid://c7cj1v67nspif"]
 
 [ext_resource type="TileSet" uid="uid://bnma3cy3t3nuy" path="res://scene/vine_bean/test_tile_set.tres" id="1_a27yx"]
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="2_g4d5x"]
-[ext_resource type="Script" uid="uid://bqv2tphkkyk2u" path="res://scene/vine_bean/bean.gd" id="3_dq62c"]
-
-[sub_resource type="Gradient" id="Gradient_dq62c"]
-offsets = PackedFloat32Array(0.736842, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3cc1n"]
-gradient = SubResource("Gradient_dq62c")
-width = 100
-height = 100
-fill = 2
-fill_from = Vector2(0.477778, 0.490741)
-fill_to = Vector2(1, 1)
+[ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="3_dq62c"]
 
 [node name="VineTest" type="Node2D"]
 
@@ -30,15 +18,16 @@ tile_set = ExtResource("1_a27yx")
 tile_map_data = PackedByteArray("AAALAAoAAwAAAAIAAAALAAkAAwAAAAEAAAALAAgAAwAAAAEAAAALAAcAAwAAAAEAAAALAAYAAwAAAAEAAAALAAUAAwAAAAEAAAALAAQAAwAAAAAAAAA=")
 tile_set = ExtResource("1_a27yx")
 
-[node name="player" parent="." instance=ExtResource("2_g4d5x")]
+[node name="player" parent="." node_paths=PackedStringArray("vine_tile_map_layer") instance=ExtResource("2_g4d5x")]
 position = Vector2(202, 1012)
+CLIMB_SPEED = 400
+vine_tile_map_layer = NodePath("../VineLayer")
 
-[node name="Bean" type="Node" parent="player" node_paths=PackedStringArray("player", "vine_layer")]
-script = ExtResource("3_dq62c")
-player = NodePath("..")
-vine_layer = NodePath("../../VineLayer")
+[node name="Camera2D" type="Camera2D" parent="player"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
 
-[node name="Marker" type="Sprite2D" parent="player/Bean"]
-unique_name_in_owner = true
-visible = false
-texture = SubResource("GradientTexture2D_3cc1n")
+[node name="VineManager" parent="." node_paths=PackedStringArray("player", "vine_layer") instance=ExtResource("3_dq62c")]
+player = NodePath("../player")
+vine_layer = NodePath("../VineLayer")
