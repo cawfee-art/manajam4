@@ -2,9 +2,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	Events.connect(&"bean_collected", on_bean_count_changed)
-	Events.connect(&"vine_planted", on_bean_count_changed)
-	Events.connect(&"not_enough_beans", on_not_enough_beans)
+	Events.bean_collected.connect(on_bean_count_changed)
+	Events.vine_planted.connect(on_bean_count_changed)
+	Events.not_enough_beans.connect(on_not_enough_beans)
 
 
 func on_bean_count_changed() -> void:

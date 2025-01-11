@@ -9,12 +9,19 @@ class_name Player
 @export var vine_tile_map_layer: TileMapLayer
 
 var is_on_vine: bool
+
+var paused: bool = false
+
+
+func _ready() -> void:
+	Events.dialog_started.connect(on_dialog_started)
+	Events.dialog_ended.connect(on_dialog_ended)
  
 
 func _physics_process(delta):
 	
 	# start climbing vine
-	if not is_on_vine and Input.is_action_pressed("Up") and _is_at_vine():
+	if not paused and not is_on_vine and Input.is_action_pressed("Up") and _is_at_vine():
 		is_on_vine = true
 	
 	# fall from vine
@@ -27,7 +34,7 @@ func _physics_process(delta):
 	if is_on_vine:
 		var y_direction = Input.get_axis("Up", "Down")
 		
-		if direction or y_direction:
+		if not paused and (direction or y_direction):
 			
 			velocity.x = CLIMB_SPEED * direction
 			velocity.y = CLIMB_SPEED * y_direction
@@ -41,7 +48,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("ClimbIdle")
 		
 	else: # not on vine
-		if direction:
+		if not paused and direction:
 			
 			velocity.x = SPEED * direction
 			
@@ -59,10 +66,11 @@ func _physics_process(delta):
 	
 	# Rotate
 	
-	if direction > 0:
-		$AnimatedSprite2D.flip_h = false
-	elif direction < 0:
-		$AnimatedSprite2D.flip_h = true
+	if not paused:
+		if direction > 0:
+			$AnimatedSprite2D.flip_h = false
+		elif direction < 0:
+			$AnimatedSprite2D.flip_h = true
 	
 	
 	# Gravity
@@ -77,7 +85,7 @@ func _physics_process(delta):
 	
 	# Jump
 	
-	if (is_on_floor() or is_on_vine) and Input.is_action_just_pressed("Jump"):
+	if not paused and (is_on_floor() or is_on_vine) and Input.is_action_just_pressed("Jump"):
 		# exit vine
 		is_on_vine = false
 		
@@ -86,6 +94,13 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
+
+
+func on_dialog_started() -> void:
+	paused = true
+
+func on_dialog_ended() -> void:
+	paused = false
 
 
 ## Returns true if a vine is behind player
