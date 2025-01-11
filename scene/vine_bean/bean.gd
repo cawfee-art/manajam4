@@ -2,12 +2,12 @@ class_name Bean extends Node
 
 
 ## Delay between frames in sec
-@export var grow_speed: float = 0.05
+@export_range(1.0, 100.0, 1.0) var grow_speed: float = 25
 @export var player: Player
 ## The layer the vine is placed on. Should be empty.
 @export var vine_layer: TileMapLayer
 ## Source id of vine atlas
-@export var vine_tile_set_id: int = 4
+@export var vine_tile_set_id: int = 0
 ## The tile set collision layers the vine will search for collision
 @export var collision_layer: int = 0
 
@@ -91,7 +91,7 @@ func plant_vine_at(grid_pos: Vector2i) -> void:
 		
 		for x in range(4):
 			vine_layer.set_cell(current_pos, vine_tile_set_id, Vector2i(x, vine_type))
-			await get_tree().create_timer(grow_speed).timeout
+			await get_tree().create_timer(grow_speed / 1000.0).timeout
 		
 		current_pos = above
 
