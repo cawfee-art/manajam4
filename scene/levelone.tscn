@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnx3dj3xyf6cx" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="2_gwcin"]
-[ext_resource type="PackedScene" path="res://scene/vine_bean/vine_manager.tscn" id="3_4370r"]
+[ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="3_4370r"]
 [ext_resource type="Texture2D" uid="uid://bo2pj275auvdh" path="res://scene/vine_bean/tileset_ranke_animated.png" id="4_0pdfi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajvav"]
