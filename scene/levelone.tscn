@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://cwmvyxupklfcv"]
 
-[ext_resource type="Texture2D" uid="uid://cnx3dj3xyf6cx" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
+[ext_resource type="Texture2D" uid="uid://bgwqqmj5uclvo" path="res://art/level one/Level 1 Teilset.png" id="1_gwcin"]
 [ext_resource type="TileSet" uid="uid://cxqpefvpfqt0u" path="res://ressources/vine_tile_set.tres" id="2_0pdfi"]
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="2_gwcin"]
 [ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="3_4370r"]
