@@ -26,7 +26,12 @@ Hud="*res://scene/hud/hud.tscn"
 [dialogic]
 
 directories/dch_directory={
+"aideen": "res://dialogic/characters/aideen.dch",
+"coby": "res://dialogic/characters/coby.dch",
+"erika": "res://dialogic/characters/erika.dch",
+"lilly": "res://dialogic/characters/lilly.dch",
 "npc1": "res://dialogic/npc1.dch",
+"olaf": "res://dialogic/characters/olaf.dch",
 "test_character": "res://dialogic/test_character.dch"
 }
 directories/dtl_directory={
