@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvl157juqm51p"]
+[gd_scene load_steps=20 format=3 uid="uid://bvl157juqm51p"]
 
 [ext_resource type="Script" uid="uid://dm10u3xm06cvh" path="res://script/player.gd" id="1_gl34u"]
 [ext_resource type="Texture2D" uid="uid://brou0ckhn18q7" path="res://art/player/Player - Climb.png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://bksjw85xv0dab" path="res://art/player/Player - Idle.png" id="2_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://dehdgy7tqq3bo" path="res://art/player/Player - Fall + Landing.png" id="3_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://c1iebiqwpgu7" path="res://art/player/Player - Running.png" id="4_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://cvk0v5w8dof1p" path="res://art/player/Player - jump.png" id="5_hp4bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0hl6"]
 size = Vector2(80, 150)
@@ -20,12 +22,20 @@ region = Rect2(100, 0, 100, 150)
 atlas = ExtResource("2_ct4mp")
 region = Rect2(0, 0, 100, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk1vr"]
+atlas = ExtResource("3_oh5ij")
+region = Rect2(0, 0, 100, 150)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
 atlas = ExtResource("2_hjaqi")
 region = Rect2(0, 0, 100, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("2_hjaqi")
+region = Rect2(100, 0, 100, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34jf3"]
+atlas = ExtResource("5_hp4bs")
 region = Rect2(100, 0, 100, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2vtq"]
@@ -65,8 +75,11 @@ animations = [{
 "name": &"ClimbIdle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk1vr")
+}],
+"loop": false,
 "name": &"Fall",
 "speed": 5.0
 }, {
@@ -81,8 +94,11 @@ animations = [{
 "name": &"Idle",
 "speed": 2.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34jf3")
+}],
+"loop": false,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -114,5 +130,5 @@ shape = SubResource("RectangleShape2D_c0hl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5vrig")
-animation = &"Idle"
+animation = &"Jump"
 autoplay = "Idle"

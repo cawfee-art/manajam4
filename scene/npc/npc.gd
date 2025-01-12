@@ -60,4 +60,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_in_range = false
+		player_can_talk = false
 		%InteractionMarker.hide()

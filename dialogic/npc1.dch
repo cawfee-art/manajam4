@@ -2,18 +2,18 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.431373, 0.505882, 0.623529, 1),
+&"color": Color(0.266667, 0.34902, 0.470588, 1),
 &"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "style",
+"style": "npc_style",
 "suffix": ""
 },
 &"default_portrait": "normal",
 &"description": "",
-&"display_name": "Keine Ahnung",
-&"mirror": false,
+&"display_name": "Npc 1",
+&"mirror": true,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {

@@ -1,30 +1,16 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=15 format=3 uid="uid://dqw3obp5vipr5"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=13 format=3 uid="uid://dqw3obp5vipr5"]
 
 [ext_resource type="PackedScene" uid="uid://cxvkrp1ee4s2d" path="res://dialogic/CustomStyle/custom_style.tscn" id="1_r2hyj"]
 [ext_resource type="Script" uid="uid://dlxx0kl8rinqh" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_06sqv"]
-[ext_resource type="Script" uid="uid://bewsvsofjyxa5" path="res://dialogic/CustomStyle/default_layout_base.gd" id="2_efjnc"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_xg8gy"]
 [ext_resource type="PackedScene" uid="uid://cgo5gigg107cj" path="res://dialogic/TextboxWithPortrait/custom_textbox_with_portrait_.tscn" id="7_efjnc"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="8_npk6l"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="9_uix83"]
 [ext_resource type="Script" uid="uid://d0bogr54k3d2f" path="res://addons/dialogic/Resources/dialogic_style.gd" id="11_5ruix"]
 
-[sub_resource type="PackedScene" id="PackedScene_ryrxc"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("DefaultLayoutBase", "CanvasLayer", "script"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0),
-"variants": [ExtResource("2_efjnc")],
-"version": 3
-}
-
 [sub_resource type="Resource" id="Resource_c0who"]
 script = ExtResource("2_06sqv")
-scene = SubResource("PackedScene_ryrxc")
+scene = ExtResource("1_r2hyj")
 overrides = {}
 
 [sub_resource type="Resource" id="Resource_ge3b0"]
@@ -63,7 +49,6 @@ layer_info = {
 "15": SubResource("Resource_ydfo4"),
 "16": SubResource("Resource_nsibh")
 }
-base_scene = ExtResource("1_r2hyj")
 base_overrides = {}
 layers = Array[ExtResource("2_06sqv")]([])
 metadata/_latest_layer = "10"

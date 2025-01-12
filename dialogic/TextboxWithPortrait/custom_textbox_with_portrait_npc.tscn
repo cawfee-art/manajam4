@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgo5gigg107cj"]
+[gd_scene load_steps=7 format=3 uid="uid://dh7p82488p5hh"]
 
-[ext_resource type="Script" uid="uid://bf7uu26k8sjcn" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
-[ext_resource type="Script" uid="uid://3yo1w1rc118v" path="res://dialogic/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
-[ext_resource type="Script" uid="uid://c7rwp65iac4r2" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
-[ext_resource type="Script" uid="uid://dftd7qmlmly8q" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
-[ext_resource type="Script" uid="uid://c7fqou3xlmam3" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
+[ext_resource type="Script" uid="uid://3yo1w1rc118v" path="res://dialogic/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_0hefv"]
+[ext_resource type="Script" uid="uid://bf7uu26k8sjcn" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="2_d26qt"]
+[ext_resource type="Script" uid="uid://c7rwp65iac4r2" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="3_wk5h4"]
+[ext_resource type="Script" uid="uid://dftd7qmlmly8q" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="4_vppos"]
+[ext_resource type="Script" uid="uid://c7fqou3xlmam3" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_lpf3b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_7jt4d")
+script = ExtResource("1_0hefv")
 box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/default_stylebox.tres"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -74,6 +74,34 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 15
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Anchor/Panel/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/Panel/HBox/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Name"
+horizontal_alignment = 2
+script = ExtResource("3_wk5h4")
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/Panel/HBox/VBoxContainer" node_paths=PackedStringArray("textbox_root")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Some text"
+scroll_following = true
+visible_characters_behavior = 1
+script = ExtResource("4_vppos")
+textbox_root = NodePath("../../..")
+
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
+script = ExtResource("5_lpf3b")
+
 [node name="PortraitPanel" type="Panel" parent="Anchor/Panel/HBox"]
 unique_name_in_owner = true
 clip_children = 1
@@ -107,34 +135,7 @@ offset_top = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_4jxq7")
+script = ExtResource("2_d26qt")
 mode = 1
 container_ids = PackedStringArray("1")
 debug_character_portrait = "speaker"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Anchor/Panel/HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/Panel/HBox/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Name"
-script = ExtResource("2_y0h34")
-
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/Panel/HBox/VBoxContainer" node_paths=PackedStringArray("textbox_root")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Some text"
-scroll_following = true
-visible_characters_behavior = 1
-script = ExtResource("3_11puy")
-textbox_root = NodePath("../../..")
-
-[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
-script = ExtResource("5_sr2qw")
