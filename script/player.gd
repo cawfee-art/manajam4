@@ -65,25 +65,25 @@ func _physics_process(delta):
 			if is_on_floor():
 				
 				sprite.play("Idle")
-	
-	# Rotate
-	
-	if not paused:
-		if direction > 0:
-			sprite.flip_h = false
-		elif direction < 0:
-			sprite.flip_h = true
-	
-	
-	# Gravity
-	
-	if not is_on_floor() and not is_on_vine:
 		
-		velocity.y += GRAVITY * delta
+		# Rotate
 		
-		if velocity.y > 0:
+		if not paused:
+			if direction > 0:
+				sprite.flip_h = false
+			elif direction < 0:
+				sprite.flip_h = true
+		
+		
+		# Gravity
+		
+		if not is_on_floor():
 			
-			sprite.play("Fall")
+			velocity.y += GRAVITY * delta
+			
+			if velocity.y > 0:
+				
+				sprite.play("Fall")
 	
 	# Jump
 	
