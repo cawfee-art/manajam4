@@ -264,19 +264,19 @@ position = Vector2(4828, 3487)
 position = Vector2(4944, 3485)
 
 [node name="Bean4" parent="Beans" instance=ExtResource("6_l3ar7")]
-position = Vector2(1558, 3260)
+position = Vector2(1558, 3289)
 
 [node name="Bean5" parent="Beans" instance=ExtResource("6_l3ar7")]
-position = Vector2(345, 2644)
+position = Vector2(341, 2689)
 
 [node name="Bean6" parent="Beans" instance=ExtResource("6_l3ar7")]
-position = Vector2(1214, 2654)
+position = Vector2(1213, 2689)
 
 [node name="Bean7" parent="Beans" instance=ExtResource("6_l3ar7")]
-position = Vector2(896, 2634)
+position = Vector2(890, 2689)
 
 [node name="Bean8" parent="Beans" instance=ExtResource("6_l3ar7")]
-position = Vector2(716, 2654)
+position = Vector2(713, 2689)
 
 [node name="Sign" parent="." instance=ExtResource("5_0pdfi")]
 position = Vector2(19503, 1498)

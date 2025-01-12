@@ -1,17 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://g254yp20hstw"]
+[gd_scene load_steps=7 format=3 uid="uid://g254yp20hstw"]
 
 [ext_resource type="Script" uid="uid://pxfix3um1rxm" path="res://scene/bean/bean.gd" id="1_s37o2"]
+[ext_resource type="Texture2D" uid="uid://dowy1qtnfqhm2" path="res://art/decotiles.png" id="2_dj2yb"]
 
-[sub_resource type="Gradient" id="Gradient_xd1dr"]
-offsets = PackedFloat32Array(0, 0.705263)
-colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f30e"]
+atlas = ExtResource("2_dj2yb")
+region = Rect2(100, 200, 100, 100)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p2yoy"]
-gradient = SubResource("Gradient_xd1dr")
-width = 75
-height = 75
-fill = 1
-fill_from = Vector2(0.514815, 0.505556)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jo8y"]
+atlas = ExtResource("2_dj2yb")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6jyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f30e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jo8y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s37o2"]
 size = Vector2(75, 75)
@@ -19,9 +31,10 @@ size = Vector2(75, 75)
 [node name="Bean" type="Node2D"]
 script = ExtResource("1_s37o2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -38)
-texture = SubResource("GradientTexture2D_p2yoy")
+sprite_frames = SubResource("SpriteFrames_u6jyj")
+frame_progress = 0.842302
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -30,6 +43,7 @@ position = Vector2(0, -37.5)
 shape = SubResource("RectangleShape2D_s37o2")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -23.0
 offset_top = -51.0
 offset_right = 23.0
