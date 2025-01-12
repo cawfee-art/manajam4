@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bl6u8hdod8g00"]
+[gd_scene load_steps=12 format=4 uid="uid://bl6u8hdod8g00"]
 
 [ext_resource type="Texture2D" uid="uid://b3wvv2cam0pgy" path="res://art/level two/Level 2 Background.png" id="1_m7spc"]
 [ext_resource type="TileSet" uid="uid://cxqpefvpfqt0u" path="res://ressources/vine_tile_set.tres" id="1_xfvps"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvl157juqm51p" path="res://scene/player.tscn" id="3_n1byp"]
 [ext_resource type="PackedScene" uid="uid://cbev5dpinjer3" path="res://scene/vine_bean/vine_manager.tscn" id="4_m7spc"]
 [ext_resource type="PackedScene" uid="uid://g254yp20hstw" path="res://scene/bean/bean.tscn" id="5_n1byp"]
+[ext_resource type="AudioStream" uid="uid://chc8jb2dqbbje" path="res://sound/music/level2.mp3" id="7_fmawp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7spc"]
 texture = ExtResource("2_xfvps")
@@ -281,3 +282,7 @@ position = Vector2(12750, 1790)
 
 [node name="Bean9" parent="beans" instance=ExtResource("5_n1byp")]
 position = Vector2(22661, 889)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fmawp")
+autoplay = true
