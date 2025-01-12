@@ -114,6 +114,5 @@ shape = SubResource("RectangleShape2D_c0hl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5vrig")
-animation = &"Climb"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.555982
