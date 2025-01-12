@@ -218,6 +218,7 @@ timeline = "res://dialogic/npc_test.dtl"
 [node name="notizen" type="Node" parent="."]
 
 [node name="notiz" type="Label" parent="notizen"]
+visible = false
 offset_left = 4744.0
 offset_top = 3224.0
 offset_right = 5024.0
@@ -277,6 +278,15 @@ position = Vector2(890, 2689)
 
 [node name="Bean8" parent="Beans" instance=ExtResource("6_l3ar7")]
 position = Vector2(713, 2689)
+
+[node name="Bean9" parent="Beans" instance=ExtResource("6_l3ar7")]
+position = Vector2(18349, 3990)
+
+[node name="Bean10" parent="Beans" instance=ExtResource("6_l3ar7")]
+position = Vector2(18258, 3989)
+
+[node name="Bean11" parent="Beans" instance=ExtResource("6_l3ar7")]
+position = Vector2(18172, 3989)
 
 [node name="Sign" parent="." instance=ExtResource("5_0pdfi")]
 position = Vector2(19502, 1501)
