@@ -94,15 +94,6 @@ theme_override_font_sizes/font_size = 61
 text = "NPC 1
 3 Bohnen"
 
-[node name="notiz3" type="Label" parent="notizen"]
-offset_left = 18090.0
-offset_top = 3768.0
-offset_right = 18370.0
-offset_bottom = 3939.0
-theme_override_font_sizes/font_size = 61
-text = "Pflanze
-3 Bohnen"
-
 [node name="Beans" type="Node" parent="."]
 
 [node name="Bean" parent="Beans" instance=ExtResource("6_l3ar7")]
@@ -140,7 +131,7 @@ position = Vector2(18172, 3989)
 
 [node name="Sign" parent="." instance=ExtResource("5_0pdfi")]
 position = Vector2(19502, 1501)
-text = ""
+text = "Hallo Bobo"
 
 [node name="KeySign" parent="." instance=ExtResource("8_sf7cd")]
 position = Vector2(2814, 4002)
@@ -199,7 +190,7 @@ text = "Rocky Mountain ->"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_kme5k")
-volume_db = -11.9
+volume_db = -17.9
 autoplay = true
 
 [connection signal="body_entered" from="TakeAwayInfiniteBeans" to="TakeAwayInfiniteBeans" method="_on_body_entered"]

@@ -25,7 +25,7 @@ func play_dialog(timeline: String, zoom: bool) -> void:
 
 
 func die_restart() -> void:
-	if Globals.beans >= 0:
-		Globals.beans = 0
+	if beans >= 0:
+		beans = 0
 		Events.bean_collected.emit()
-		get_tree().reload_current_scene()
+	get_tree().reload_current_scene()

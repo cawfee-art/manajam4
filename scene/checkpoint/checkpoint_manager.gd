@@ -23,4 +23,4 @@ func on_checkpoint_activated(pos: Vector2) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"Restart"):
-		Globals.die_reset()
+		Globals.die_restart()

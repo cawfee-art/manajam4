@@ -12,5 +12,9 @@ elif {aideen} < 3.0:
 	fleur: Danke!
 	[signal arg="give_bean"]
 	set {aideen} += 1.0
-else:
+elif {aideen} < 5.0:
 	aideen: Mehr habe ich nicht..
+	set {aideen} += 1.0
+else:
+	aideen: Das machst du doch extra, oder?
+	aideen: Mit [b]R[/b] kannst du das Level neu starten, wenn du nicht weiterkommst.
