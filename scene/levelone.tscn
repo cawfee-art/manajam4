@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cwmvyxupklfcv"]
+[gd_scene load_steps=20 format=4 uid="uid://cwmvyxupklfcv"]
 
 [ext_resource type="Texture2D" uid="uid://6mvsk4lyta7k" path="res://art/level one/Background_level_1.png" id="1_28kaw"]
 [ext_resource type="Script" uid="uid://bomauu5u36pgl" path="res://scene/levelone.gd" id="1_vvgfe"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c41c7u88wbb6o" path="res://art/keys/Space-Key.png" id="11_vvgfe"]
 [ext_resource type="Script" uid="uid://by78nuqhjujxr" path="res://scene/take_away_infinite_beans.gd" id="12_sf7cd"]
 [ext_resource type="PackedScene" uid="uid://33d3xd8002uk" path="res://scene/checkpoint/checkpoint.tscn" id="14_gh6c2"]
+[ext_resource type="AudioStream" uid="uid://hg5mw4gh4nei" path="res://sound/music/level1.mp3" id="16_kme5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iai67"]
 size = Vector2(200, 200)
@@ -191,6 +192,15 @@ timeline = "res://dialogic/dialogs/lv1_olaf_1.dtl"
 
 [node name="Checkpoint" parent="." instance=ExtResource("14_gh6c2")]
 position = Vector2(9741, 3615)
+
+[node name="Sign2" parent="." instance=ExtResource("5_0pdfi")]
+position = Vector2(25657, 801)
+text = "Rocky Mountain ->"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_kme5k")
+volume_db = -11.9
+autoplay = true
 
 [connection signal="body_entered" from="TakeAwayInfiniteBeans" to="TakeAwayInfiniteBeans" method="_on_body_entered"]
 [connection signal="body_entered" from="NextLevel" to="." method="_on_next_level_body_entered"]

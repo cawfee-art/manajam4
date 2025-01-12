@@ -38,6 +38,8 @@ size = Vector2(200, 200)
 script = ExtResource("1_ohi7i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -41)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_c8sse")
 autoplay = "default"
 frame_progress = 1.0
