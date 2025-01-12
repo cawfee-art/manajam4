@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# check if player looks in direction of npc
-	if (flipped and player.sprite.flip_h) or (not flipped and not player.sprite.flip_h):
+	if (not flipped and player.sprite.flip_h) or (flipped and not player.sprite.flip_h):
 		player_can_talk = false
 		%InteractionMarker.hide()
 		return
