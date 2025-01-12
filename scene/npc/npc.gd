@@ -3,7 +3,7 @@ extends Node2D
 
 
 @export_tool_button("Flip", "FlipWinding") var flip_h = flip
-@export_storage var flipped: bool = true
+@export_storage var flipped: bool = false
 
 func flip() -> void:
 	if flipped:
@@ -12,6 +12,14 @@ func flip() -> void:
 	else:
 		%Pivot.scale = Vector2(-1.0, 1.0)
 		flipped = true
+
+@export_enum("Erika", "Aideen", "Olaf", "Coby", "Lilly") \
+var person: String = "Erika":
+	get:
+		return person
+	set(value):
+		person = value
+		%AnimatedSprite2D.play(person)
 
 ## Dialog
 @export_file("*.dtl") var timeline: String = ""
@@ -30,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# check if player looks in direction of npc
-	if (flipped and player.sprite.flip_h) or (not flipped and not player.sprite.flip_h):
+	if (not flipped and player.sprite.flip_h) or (flipped and not player.sprite.flip_h):
 		player_can_talk = false
 		%InteractionMarker.hide()
 		return
