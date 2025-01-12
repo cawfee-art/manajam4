@@ -22,6 +22,11 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	
+	# death
+	if global_position.y > 6000:
+		Globals.die_restart()
+		return
+	
 	# start climbing vine
 	if not paused and not is_on_vine and Input.is_action_pressed("Up") and _is_at_vine():
 		is_on_vine = true

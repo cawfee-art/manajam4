@@ -22,3 +22,10 @@ func play_dialog(timeline: String, zoom: bool) -> void:
 	if zoom:
 		var tween = create_tween()
 		tween.tween_property(camera, ^"zoom", Vector2(1.0, 1.0), 0.5)
+
+
+func die_restart() -> void:
+	if Globals.beans >= 0:
+		Globals.beans = 0
+		Events.bean_collected.emit()
+		get_tree().reload_current_scene()

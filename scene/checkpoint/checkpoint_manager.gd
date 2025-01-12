@@ -23,7 +23,4 @@ func on_checkpoint_activated(pos: Vector2) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"Restart"):
-		if Globals.beans >= 0:
-			Globals.beans = 0
-			Events.bean_collected.emit()
-		get_tree().reload_current_scene()
+		Globals.die_reset()
