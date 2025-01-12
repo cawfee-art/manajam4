@@ -51,6 +51,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func has_bean() -> bool:
+	if Globals.beans < 0:
+		return true
+	
 	return Globals.beans > 0
 
 func can_plant_here() -> bool:
@@ -115,7 +118,7 @@ func _get_all_tile_map_layers(node: Node) -> void:
 	if node is ParallaxLayer:
 		return
 	
-	if node is TileMapLayer and node != vine_layer:
+	if node is TileMapLayer and node != vine_layer and node.collision_enabled:
 		tile_map_layers.append(node)
 	
 	# recursive

@@ -36,6 +36,10 @@ directories/dch_directory={
 "test_character": "res://dialogic/test_character.dch"
 }
 directories/dtl_directory={
+"lv1_aideen_1": "res://dialogic/dialogs/lv1_aideen_1.dtl",
+"lv1_erika_1": "res://dialogic/dialogs/lv1_erika_1.dtl",
+"lv1_lilly_1": "res://dialogic/dialogs/lv1_lilly_1.dtl",
+"lv1_olaf_1": "res://dialogic/dialogs/lv1_olaf_1.dtl",
 "npc_test": "res://dialogic/npc_test.dtl",
 "test_dialog": "res://dialogic/test_dialog.dtl"
 }
@@ -63,6 +67,9 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 text/absolute_autopauses=false
+variables={
+"aideen": 0
+}
 
 [display]
 
@@ -75,6 +82,11 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[global_group]
+
+checkpoint=""
+player=""
 
 [input]
 
@@ -125,6 +137,11 @@ Talk={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Restart={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
 

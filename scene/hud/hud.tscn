@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdgpbq6o36jv6"]
+[gd_scene load_steps=6 format=3 uid="uid://cdgpbq6o36jv6"]
 
 [ext_resource type="Script" uid="uid://defowhwrgrbyt" path="res://scene/hud/hud.gd" id="1_1kan5"]
+[ext_resource type="Texture2D" uid="uid://dowy1qtnfqhm2" path="res://art/decotiles.png" id="2_hta5f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in6qw"]
+atlas = ExtResource("2_hta5f")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iokb"]
+atlas = ExtResource("2_hta5f")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yox3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in6qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iokb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="HudCanvasLayer" type="CanvasLayer"]
 layer = 16
@@ -16,6 +39,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BeanCounter" type="MarginContainer" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -30,8 +54,25 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="BeanLabel" type="Label" parent="Control/BeanCounter"]
+[node name="Panel" type="PanelContainer" parent="Control/BeanCounter"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/BeanCounter/Panel"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/BeanCounter/Panel/HBoxContainer"]
+position = Vector2(67, 64)
+sprite_frames = SubResource("SpriteFrames_yox3p")
+autoplay = "default"
+frame_progress = 0.177409
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/BeanCounter/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="BeanLabel" type="Label" parent="Control/BeanCounter/Panel/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "0"

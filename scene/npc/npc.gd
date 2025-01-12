@@ -2,16 +2,22 @@
 extends Node2D
 
 
-@export_tool_button("Flip", "FlipWinding") var flip_h = flip
-@export_storage var flipped: bool = false
+const FLIPPED = Vector2(1.0, 1.0)
+const UNFLIPPED = Vector2(-1.0, 1.0)
+
+@export var flipped: bool = false:
+	get:
+		return flipped
+	set(value):
+		flipped = value
+		flip()
+
 
 func flip() -> void:
 	if flipped:
-		%Pivot.scale = Vector2(1.0, 1.0)
-		flipped = false
+		%Pivot.scale = FLIPPED
 	else:
-		%Pivot.scale = Vector2(-1.0, 1.0)
-		flipped = true
+		%Pivot.scale = UNFLIPPED
 
 @export_enum("Erika", "Aideen", "Olaf", "Coby", "Lilly") \
 var person: String = "Erika":
@@ -32,13 +38,16 @@ var player: Player
 
 func _ready() -> void:
 	%InteractionMarker.hide()
+	flip()
+	%AnimatedSprite2D.play(person)
+
 
 func _physics_process(delta: float) -> void:
 	if not player_in_range:
 		return
 	
 	# check if player looks in direction of npc
-	if (not flipped and player.sprite.flip_h) or (flipped and not player.sprite.flip_h):
+	if (%Pivot.scale == FLIPPED and player.sprite.flip_h) or (not %Pivot.scale == FLIPPED and not player.sprite.flip_h):
 		player_can_talk = false
 		%InteractionMarker.hide()
 		return

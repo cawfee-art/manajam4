@@ -1,0 +1,16 @@
+if {aideen} == 0.0:
+	aideen: Hey, hast du keine Ranken mehr? Die halten nicht ewig, weißt du?
+	aideen: Schau in deinem HUD unten rechts. Dort siehst du wie viele du noch hast.
+	[signal arg="enable_hud"]
+	aideen: Hast du keine mehr, musst du neue einsammeln, wie die dort oben.
+	aideen: Hier, ich geb dir eine.
+	fleur: Danke!
+	[signal arg="give_bean"]
+	set {aideen} = 1.0
+elif {aideen} < 3.0:
+	aideen: Du brauchst noch mehr? Na gut, ich geb dir noch eine.
+	fleur: Danke!
+	[signal arg="give_bean"]
+	set {aideen} += 1.0
+else:
+	aideen: Mehr habe ich nicht..

@@ -1,0 +1,7 @@
+lilly: Hallo Fleur! Hast du auch diese lustigen Ranken gefunden?
+fleur: Ja, so bin ich hoch gekommen!
+lilly: Hier lagen überall kleinere herum. Ich hab sie alle eingesammelt!
+lilly: Opa sagt ich darf mit denen nicht spielen, sonst wachsen die hoch in den Himmel und ziehen mich mit! Papa sagt das wäre unsinn... 
+lilly: Hier, ich gebe dir welche ab! Du kanns sie mit [b]E[/b] einpflanzen.
+fleur: Mit [b]E[/b] sagst du?
+[signal arg="give_infinite_beans"]

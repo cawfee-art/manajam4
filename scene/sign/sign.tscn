@@ -30,6 +30,7 @@ corner_radius_bottom_left = 20
 
 [node name="Sign" type="Node2D"]
 script = ExtResource("1_gxi6p")
+text = null
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -49)

@@ -120,7 +120,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_gl34u")
 SPEED = 500
 JUMP_FORCE = 700

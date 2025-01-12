@@ -133,6 +133,7 @@ animations = [{
 
 [node name="Npc" type="Node2D"]
 script = ExtResource("1_3j4xb")
+flipped = null
 
 [node name="Pivot" type="Node2D" parent="."]
 unique_name_in_owner = true

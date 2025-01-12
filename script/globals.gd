@@ -1,8 +1,10 @@
 extends Node
 
 
-var beans: int = 0
+var beans: int = 0 # -1 = ininite, 0 = can't place
 
+var reset_position: Vector2
+var checkpoint_reached: bool = false
 
 ## Plays dialogic timeline
 func play_dialog(timeline: String, zoom: bool) -> void:
