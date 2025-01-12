@@ -3,6 +3,8 @@ class_name Bean extends Node
 
 ## Delay between frames in sec
 @export_range(1.0, 100.0, 1.0) var grow_speed: float = 25.0
+## Max blocks a vine will grow
+@export var max_length: int = 10
 @export var player: Player
 ## The layer the vine is placed on. Should be empty.
 @export var vine_layer: TileMapLayer
@@ -86,13 +88,14 @@ func can_grow_at(grid_pos: Vector2i) -> bool:
 func plant_vine_at(grid_pos: Vector2i) -> void:
 	var current_pos := grid_pos
 	var vine_type := 2 # 2 = root, 1 = mid, 0 = end; start with root
+	var curr_length := 0
 	
-	while current_pos.y >= 0 and can_grow_at(current_pos):
+	while curr_length < max_length and current_pos.y >= 0 and can_grow_at(current_pos):
 		var above = current_pos - Vector2i(0, 1)
 		if current_pos == grid_pos:
 			vine_type = 2
 			
-		elif above.y >= 0 and can_grow_at(above):
+		elif curr_length < max_length - 1 and above.y >= 0 and can_grow_at(above):
 			vine_type = 1
 			
 		else:
@@ -102,6 +105,7 @@ func plant_vine_at(grid_pos: Vector2i) -> void:
 			vine_layer.set_cell(current_pos, vine_tile_set_id, Vector2i(x, vine_type))
 			await get_tree().create_timer(grow_speed / 1000.0).timeout
 		
+		curr_length += 1
 		current_pos = above
 
 
