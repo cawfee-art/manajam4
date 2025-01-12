@@ -3,22 +3,22 @@
 [ext_resource type="Script" uid="uid://pxfix3um1rxm" path="res://scene/bean/bean.gd" id="1_s37o2"]
 [ext_resource type="Texture2D" uid="uid://dowy1qtnfqhm2" path="res://art/decotiles.png" id="2_dj2yb"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj2yb"]
+atlas = ExtResource("2_dj2yb")
+region = Rect2(100, 201, 100, 99)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f30e"]
 atlas = ExtResource("2_dj2yb")
-region = Rect2(100, 200, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2jo8y"]
-atlas = ExtResource("2_dj2yb")
-region = Rect2(200, 200, 100, 100)
+region = Rect2(200, 201, 100, 99)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u6jyj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1f30e")
+"texture": SubResource("AtlasTexture_dj2yb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2jo8y")
+"texture": SubResource("AtlasTexture_1f30e")
 }],
 "loop": true,
 "name": &"default",

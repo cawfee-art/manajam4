@@ -279,5 +279,5 @@ position = Vector2(890, 2689)
 position = Vector2(713, 2689)
 
 [node name="Sign" parent="." instance=ExtResource("5_0pdfi")]
-position = Vector2(19503, 1498)
-text = "Hallo"
+position = Vector2(19502, 1501)
+text = "Hallo, Bobo!"
